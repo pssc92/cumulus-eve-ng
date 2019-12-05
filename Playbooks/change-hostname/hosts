@@ -1,8 +1,8 @@
-[spines]
+[spines:spines]
 spine01 hostname=spine01 
 spine02 hostname=spine02
 
-[leafs]
+[leafs:leafs]
 leaf01  hostname=leaf01
 leaf02  hostname=leaf02
 leaf03  hostname=leaf03
