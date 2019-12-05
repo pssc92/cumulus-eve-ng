@@ -1,6 +1,6 @@
 ---
 - name: Setup tasks
-  hosts: switches
+  hosts: leafs,spines
   become: yes
   
   tasks:
