@@ -1,0 +1,18 @@
+[spines]
+spine01 hostname=spine01 
+spine02 hostname=spine02
+
+[leafs]
+leaf01  hostname=leaf01
+leaf02  hostname=leaf02
+leaf03  hostname=leaf03
+leaf04  hostname=leaf04
+
+[switches]
+spines
+leafs
+
+[all:vars]
+ansible_user=cumulus
+ansible_ssh_pass=CumulusLinux!
+ansible_become_pass=CumulusLinux!
