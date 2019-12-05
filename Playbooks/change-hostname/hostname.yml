@@ -1,10 +1,11 @@
 ---
-tasks:
+- name: Setup tasks
+  hosts: switches
+  become: yes
+  
+  tasks:
   - name: Configure hostname on all switches
     nclu:
-        commit: true
-        description: "Configure hostname on all switches"
-        commands:
-            - add hostname {{ hostname }}
-
-
+      commands:
+      - add hostname {{ hostname }}
+      commit: true
