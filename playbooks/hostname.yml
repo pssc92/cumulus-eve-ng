@@ -10,4 +10,4 @@
     nclu:
       commands:
       - add hostname {{ devices[ansible_hostname].hostname }}
-      commit: true
+      atomic: true

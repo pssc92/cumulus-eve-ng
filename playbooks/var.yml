@@ -2,7 +2,7 @@
 devices:
     spine01:
         hostname: "spine01"
-        loopback: "172.16.12.101/32"
+        loopback: "172.16.12.10/32"
         VLANS:
             - vlan: "10"
               vrrip: "10.0.10.1/24"

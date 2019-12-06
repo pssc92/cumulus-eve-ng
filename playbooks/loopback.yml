@@ -10,5 +10,5 @@
     nclu:
       commands:
       - add loopback lo ip address {{ devices[ansible_hostname].loopback }}
-      commit: true
+      atomic: true
     
