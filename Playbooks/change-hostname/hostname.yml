@@ -4,8 +4,12 @@
   become: yes
   
   tasks:
+  - name: Get variables
+    vars_files:
+        - var.yml
+
   - name: Configure hostname on all switches
     nclu:
       commands:
-      - add hostname {{ hostname }}
+      - add hostname {{ devices[ansible_hostname].hostname }}
       commit: true

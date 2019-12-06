@@ -1,0 +1,50 @@
+---
+devices:
+    spine01:
+        hostname: "spine011"
+        loopback: "172.16.12.101/32"
+        VLANS:
+            - vlan: "10"
+              vrrip: "10.0.10.1/24"
+            - vlan: "20"
+              vrrip: "10.0.20.1/24"
+    spine02:
+        hostname: "spine022"
+        loopback: "172.16.12.102/32"
+        VLANS:
+            - vlan: "10"
+              vrrip: "10.0.10.1/24"
+            - vlan: "20"
+              vrrip: "10.0.20.1/24"
+    leaf01:
+        hostname: "leaf011"
+        loopback: "172.16.12.111/32"
+        VLANS:
+            - vlan: "10"
+              vrrip: "10.0.10.1/24"
+            - vlan: "20"
+              vrrip: "10.0.20.1/24"
+    leaf02:
+        hostname: "leaf022"
+        loopback: "172.16.12.112/32"
+        VLANS:
+            - vlan: "10"
+              vrrip: "10.0.10.1/24"
+            - vlan: "20"
+              vrrip: "10.0.20.1/24"
+    leaf03:
+        hostname: "leaf033"
+        loopback: "172.16.12.113/32"
+        VLANS:
+            - vlan: "10"
+              vrrip: "10.0.10.1/24"
+            - vlan: "20"
+              vrrip: "10.0.20.1/24"
+    leaf04:
+        hostname: "leaf044"
+        loopback: "172.16.12.114/32"
+        VLANS:
+            - vlan: "10"
+              vrrip: "10.0.10.1/24"
+            - vlan: "20"
+              vrrip: "10.0.20.1/24"
