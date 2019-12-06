@@ -2,12 +2,10 @@
 - name: Setup tasks
   hosts: leafs,spines
   become: yes
+  vars_files:
+    - var.yml
   
   tasks:
-  - name: Get variables
-    vars_files:
-        - var.yml
-
   - name: Configure hostname on all switches
     nclu:
       commands:
