@@ -1,0 +1,14 @@
+---
+    - name: Setup tasks
+      hosts: leafs,spines
+      become: yes
+      vars_files:
+        - var.yml
+      
+      tasks:
+      - name: Configure hostname on all switches
+        nclu:
+          commands:
+          - add loopback lo ip address {{ devices[ansible_hostname].loopback }}
+          commit: true
+    

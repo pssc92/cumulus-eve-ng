@@ -1,12 +1,12 @@
 [spines]
-spine01 hostname=spine01 
-spine02 hostname=spine02
+spine01
+spine02
 
 [leafs]
-leaf01  hostname=leaf01
-leaf02  hostname=leaf02
-leaf03  hostname=leaf03
-leaf04  hostname=leaf04
+leaf01
+leaf02
+leaf03
+leaf04
 
 [all:vars]
 ansible_become_pass=CumulusLinux!
