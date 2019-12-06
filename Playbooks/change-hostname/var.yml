@@ -1,6 +1,6 @@
 ---
 devices:
-    spine01:
+    spine011:
         hostname: "spine01"
         loopback: "172.16.12.101/32"
         VLANS:
@@ -8,7 +8,7 @@ devices:
               vrrip: "10.0.10.1/24"
             - vlan: "20"
               vrrip: "10.0.20.1/24"
-    spine02:
+    spine022:
         hostname: "spine02"
         loopback: "172.16.12.102/32"
         VLANS:
@@ -16,7 +16,7 @@ devices:
               vrrip: "10.0.10.1/24"
             - vlan: "20"
               vrrip: "10.0.20.1/24"
-    leaf01:
+    leaf011:
         hostname: "leaf01"
         loopback: "172.16.12.111/32"
         VLANS:
@@ -24,7 +24,7 @@ devices:
               vrrip: "10.0.10.1/24"
             - vlan: "20"
               vrrip: "10.0.20.1/24"
-    leaf02:
+    leaf022:
         hostname: "leaf02"
         loopback: "172.16.12.112/32"
         VLANS:
@@ -32,7 +32,7 @@ devices:
               vrrip: "10.0.10.1/24"
             - vlan: "20"
               vrrip: "10.0.20.1/24"
-    leaf03:
+    leaf033:
         hostname: "leaf03"
         loopback: "172.16.12.113/32"
         VLANS:
@@ -40,7 +40,7 @@ devices:
               vrrip: "10.0.10.1/24"
             - vlan: "20"
               vrrip: "10.0.20.1/24"
-    leaf04:
+    leaf044:
         hostname: "leaf04"
         loopback: "172.16.12.114/32"
         VLANS:
