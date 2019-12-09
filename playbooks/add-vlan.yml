@@ -1,0 +1,32 @@
+---
+    - name: Configure leafs
+      hosts: leaf01:leaf02
+      become: yes
+      vars_files:
+        - simple-network-vars.yml
+      
+      tasks:
+      - name: Configure leafs
+        nclu:
+          commands:
+          - add bridge bridge vids {{ vlan }}
+          - add interface {{ switchport }} bridge access {{ vlan}}
+          atomic: true
+
+    - name: configure spines
+      hosts: spine01
+      become: yes
+      vars_files:
+        - simple-network-vars.yml
+
+      tasks:
+      - name: configure spines
+        nclu:
+          commands:
+          - add bridge bridge vids {{ vlan }}
+          - add vlan {{ vlan }} ip address {{ ipaddress }}
+          atomic: true
+
+#ansible-playbook add-vlan.yml --extra-vars "vlan=20 ipaddress=192.168.20.1/24 switchport=swp2"
+
+        
