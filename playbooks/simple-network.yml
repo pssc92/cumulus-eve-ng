@@ -1,0 +1,31 @@
+---
+    - name: Configure leafs
+      hosts: leafs
+      become: yes
+      vars_files:
+        - simple-network-vars.yml
+      
+      tasks:
+      - name: Configure leafs
+        nclu:
+          commands:
+          - add bridge bridge vids 10,20
+          - add bridge bridge ports swp10
+          - add interface swp1 bridge access 10
+          atomic: true
+
+    - name: configure spines
+      hosts: spines
+      become: yes
+      vars_files:
+        - simple-network-vars.yml
+
+      tasks:
+      - name: configure spines
+        nclu:
+          commands:
+          - add bridge bridge vids 10,20
+          - add bridge bridge ports swp1,swp2
+          - add vlan 10 ip address 192.168.10.1/24
+          atomic: true
+        

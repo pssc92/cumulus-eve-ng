@@ -1,0 +1,27 @@
+---
+    devices:
+        spine01:
+            hostname: "spine01"
+            loopback: "172.16.12.101/32"
+            VLANS:
+                - vlan: "10"
+                - vlan: "20"
+            leaf_interface: swp1, swp2
+        leaf01:
+            hostname: "leaf01"
+            loopback: "172.16.12.111/32"
+            VLANS:
+                - vlan: "10"
+                - vlan: "20"
+            spine_interface: swp10
+            server_port: swp1
+        leaf02:
+            hostname: "leaf02"
+            loopback: "172.16.12.112/32"
+            VLANS:
+                - vlan: "10"
+                - vlan: "20"
+            spine_interface: swp11
+            server_port: swp1
+
+    
