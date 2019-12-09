@@ -15,7 +15,7 @@
           atomic: true
 
     - name: configure spines
-      hosts: spines
+      hosts: spine01
       become: yes
       vars_files:
         - simple-network-vars.yml
