@@ -1,6 +1,6 @@
 ---
     - name: Configure leafs
-      hosts: leafs
+      hosts: leaf01:leaf02
       become: yes
       vars_files:
         - simple-network-vars.yml
