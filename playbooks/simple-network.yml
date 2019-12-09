@@ -2,10 +2,12 @@
     - name: delete config
       hosts: leaf01:leaf02:spine01
       become: yes
-      nclu:
-        commands:
-          - del all
-        atomic: true
+      
+      tasks:
+        nclu:
+          commands:
+           - del all
+          atomic: true
   
     - name: Configure leafs
       hosts: leaf01:leaf02
