@@ -1,0 +1,12 @@
+[spines]
+spine01
+spine02
+
+[leafs]
+leaf01
+leaf02
+leaf03
+leaf04
+
+[all:vars]
+ansible_become_pass=CumulusLinux!

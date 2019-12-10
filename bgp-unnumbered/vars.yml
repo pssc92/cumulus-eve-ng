@@ -1,0 +1,63 @@
+---
+devices:
+    spine01:
+        hostname: "spine01"
+        loopback: "10.255.255.101/32"
+        rid: "10.255.255.101"
+        as: "65101"
+        leaf_ports: 
+            - port: "swp1"
+            - port: "swp2"
+            - port: "swp3"
+            - port: "swp4"
+    spine02:
+        hostname: "spine02"
+        loopback: "10.255.255.102/32"
+        rid: "10.255.255.102"
+        as: "65102"
+        leaf_ports: 
+            - port: "swp1"
+            - port: "swp2"
+            - port: "swp3"
+            - port: "swp4"
+    leaf01:
+        hostname: "leaf01"
+        loopback: "10.255.255.111/32"
+        rid: "10.255.255.111"
+        as: "65111"
+        spine_ports:
+            - port: "swp10"
+            - port: "swp11"
+        vlan: "10"
+        vlan_ip: "192.168.10.1/24"
+    leaf02:
+        hostname: "leaf02"
+        loopback: "10.255.255.112/32"
+        rid: "10.255.255.112"
+        as: "65112"
+        spine_ports:
+            - port: "swp10"
+            - port: "swp11"
+        vlan: "20"
+        vlan_ip: "192.168.20.1/24"
+    leaf03:
+        hostname: "leaf03"
+        loopback: "10.255.255.113/32"
+        rid: "10.255.255.113"
+        as: "65113"
+        spine_ports:
+            - port: "swp10"
+            - port: "swp11"
+        vlan: "30"
+        vlan_ip: "192.168.30.1/24"
+    leaf04:
+        hostname: "leaf04"
+        loopback: "10.255.255.114/32"
+        rid: "10.255.255.114"
+        as: "65114"
+        spine_ports:
+            - port: "swp10"
+            - port: "swp11"
+        vlan: "40"
+        vlan_ip: "192.168.40.1/24"
+    
