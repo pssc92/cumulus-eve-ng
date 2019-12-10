@@ -1,0 +1,14 @@
+---
+- name: Configure leafs
+  hosts: leafs
+  become: yes
+  vars_files:
+    - vars.yml
+  
+  tasks:
+  - name: test
+    debug:
+        msg: "test: {{ item }}"
+    with_items: "{{ devices[ansible_hostname].leaf_ports }}"
+
+    
