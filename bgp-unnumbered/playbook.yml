@@ -19,19 +19,3 @@
     with_items: "{{ devices[ansible_hostname].leaf_ports }}"
 
 
-
-#Spine config
-#net add loopback lo ip address 10.255.255.101/32
-#net add bgp autonomous-system 65101
-#net add bgp neighbor swp1 interface remote-as external
-#net add bgp neighbor swp1 capability extended-nexthop
-#
-#Leaf config
-#
-#
-#
-#
-#
-#
-#
-#
