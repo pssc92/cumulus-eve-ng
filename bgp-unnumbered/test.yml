@@ -9,6 +9,6 @@
   - name: test
     debug:
         msg: "test: {{ item }}"
-    with_items: "{{ devices[ansible_hostname].leaf_ports }}"
+    with_items: "{{ devices[ansible_hostname].spine_ports }}"
 
     
