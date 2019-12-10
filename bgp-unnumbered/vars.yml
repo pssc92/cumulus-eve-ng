@@ -6,10 +6,10 @@ devices:
         rid: "10.255.255.101"
         as: "65101"
         leaf_ports: 
-            - port: "swp1"
-            - port: "swp2"
-            - port: "swp3"
-            - port: "swp4"
+            - "swp1"
+            - "swp2"
+            - "swp3"
+            - "swp4"
     spine02:
         hostname: "spine02"
         loopback: "10.255.255.102/32"
