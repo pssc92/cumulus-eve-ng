@@ -10,6 +10,7 @@
       commands:
       - add loopback lo ip address {{ devices[ansible_hostname].loopback }}
 #      - add bgp autonomous-system {{ devices[ansible_hostname].as }}
+      commit: true
 
   - name: Configure bgp neighbors
     nclu:
@@ -33,6 +34,7 @@
         commands:
         - add loopback lo ip address {{ devices[ansible_hostname].loopback }}
         - add bgp autonomous-system {{ devices[ansible_hostname].as }}
+        commit: true
   
     - name: Configure bgp neighbors
       nclu:
