@@ -70,7 +70,7 @@
 
     - name: Restart networking service on servers
       service:
-        name: network
+        name: networking
         state: restarted
           
 
