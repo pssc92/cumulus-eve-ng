@@ -68,5 +68,11 @@
             address {{ devices[ansible_hostname].ip }}
             gateway {{ devices[ansible_hostname].gateway }}
 
+    - name: Restart networking service on servers
+      service:
+        name: network
+        state: restarted
+          
+
 
 
