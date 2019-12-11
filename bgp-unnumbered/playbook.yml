@@ -9,7 +9,7 @@
     nclu:
       commands:
       - add loopback lo ip address {{ devices[ansible_hostname].loopback }}
-#      - add bgp autonomous-system {{ devices[ansible_hostname].as }}
+      - add bgp autonomous-system {{ devices[ansible_hostname].as }}
       commit: true
 
   - name: Configure bgp neighbors
@@ -43,5 +43,12 @@
         - add bgp neighbor {{ item }} capability extended-nexthop
         commit: true
       with_items: "{{ devices[ansible_hostname].spine_ports }}"
+    
+    - name: Configure vlan, svi and access port for servers
+      nclu:
+        commands:
+        - add vlan {{ devices[ansible_hostname].vlan }} ip address {{ devices[ansible_hostname].vlan_ip }}
+        - add interface {{ devices[ansible_hostname].server_port }} bridge access {{ devices[ansible_hostname].vlan }}
+        commit: true
 
 
