@@ -1,11 +1,11 @@
 ---
-- name: configure spines
-  hosts: spines
+- name: configure spine01
+  hosts: spine01
   become: yes
   vars_files:
     - vars.yml
   tasks:
-  - name: configure spines for BGP Unnumbered (BGP config)
+  - name: configure spine01 for BGP Unnumbered (BGP config)
     nclu:
       commands:
       - add loopback lo ip address {{ devices[ansible_hostname].loopback }}
@@ -23,7 +23,7 @@
 
 
 - name: configure Leafs
-  hosts: leafs
+  hosts: leaf01:leaf02
   become: yes
   vars_files:
   - vars.yml
