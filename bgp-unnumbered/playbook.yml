@@ -50,6 +50,12 @@
         - add vlan {{ devices[ansible_hostname].vlan }} ip address {{ devices[ansible_hostname].vlan_ip }}
         - add interface {{ devices[ansible_hostname].server_port }} bridge access {{ devices[ansible_hostname].vlan }}
         commit: true
+    
+    - name: Announce local network into BGP
+      nclu:
+        commands:
+        - add bgp network {{ devices[ansible_hostname].bgp_network }}
+        commit: true
 
 - name: configure servers
   hosts: server01:server03

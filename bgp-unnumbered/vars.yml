@@ -17,6 +17,7 @@ devices:
         vlan: "10"
         vlan_ip: "192.168.10.1/24"
         server_port: "swp1"
+        bgp_network: "192.168.10.0/24"
 
     leaf03:
         hostname: "leaf03"
@@ -27,6 +28,7 @@ devices:
         vlan: "10"
         vlan_ip: "192.168.20.1/24"
         server_port: "swp1"
+        bgp_network: "192.168.20.0/24"
 
     server01:
         ip: "192.168.10.10/24"
