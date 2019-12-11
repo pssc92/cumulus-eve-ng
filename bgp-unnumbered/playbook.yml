@@ -58,10 +58,10 @@
   - vars.yml
 
   tasks:
-    - name: Include class config into include files
+    - name: Add interfaces config to servers
       lineinfile:
         path: "/etc/network/interfaces"
-        inserafter: "iface eth0 inet dhcp"
+        insertafter: "iface eth0 inet dhcp"
         lines: 
           - "auto eth1"
           - "iface eth1 inet static"
