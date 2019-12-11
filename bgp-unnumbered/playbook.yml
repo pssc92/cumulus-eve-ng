@@ -67,13 +67,11 @@
           iface eth1 inet static
             address {{ devices[ansible_hostname].ip }}
 
+    - name: ifup eth1 on servers
+      command: ifup eth1
+    
     - name: Add static route to server
       command: ip route add 192.168.0.0/16 via {{ devices[ansible_hostname].gateway }}
-
-    - name: Restart networking service on servers
-      service:
-        name: networking
-        state: restarted
           
 
 
