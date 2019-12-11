@@ -1,27 +1,31 @@
 ---
+#Setup Play1: Configure spine switches
 - name: configure spine01
   hosts: spine01
   become: yes
   vars_files:
     - vars.yml
   tasks:
+  #Task 1: Configure BGP parameters on spine switches
   - name: configure spine01 for BGP Unnumbered (BGP config)
     nclu:
       commands:
       - add loopback lo ip address {{ devices[ansible_hostname].loopback }}
       - add bgp autonomous-system {{ devices[ansible_hostname].as }}
       commit: true
-
+  
+  #Task 2: Configure BGP neighbors and enable BGP unnumbered on the interfaces to the leafs
   - name: Configure bgp neighbors
     nclu:
       commands:
       - add bgp neighbor {{ item }} interface remote-as external
       - add bgp neighbor {{ item }} capability extended-nexthop
       commit: true
+    #with_items creates a list from the variables mentiond in the vars.yml file and will parse the list with the commands above. If there a 4 values in the list the commands will run 4 times
     with_items: "{{ devices[ansible_hostname].leaf_ports }}"
 
 
-
+#Setup Play2: Configure leaf switches
 - name: configure Leafs
   hosts: leaf01:leaf03
   become: yes
@@ -29,19 +33,22 @@
   - vars.yml
     
   tasks:
+    #Task1: Configure BGP parameters on leaf switch
     - name: configure leafs for BGP Unnumbered (BGP config)
       nclu:
         commands:
         - add loopback lo ip address {{ devices[ansible_hostname].loopback }}
         - add bgp autonomous-system {{ devices[ansible_hostname].as }}
         commit: true
-  
+
+    #Task 2: Configure BGP neighbors and enable BGP unnumbered on the interfaces to the spine
     - name: Configure bgp neighbors
       nclu:
         commands:
         - add bgp neighbor {{ item }} interface remote-as external
         - add bgp neighbor {{ item }} capability extended-nexthop
         commit: true
+      #with_items creates a list from the variables mentiond in the vars.yml file and will parse the list with the commands above. If there a 4 values in the list the commands will run 4 times
       with_items: "{{ devices[ansible_hostname].spine_ports }}"
     
     - name: Configure vlan, svi and access port for servers
