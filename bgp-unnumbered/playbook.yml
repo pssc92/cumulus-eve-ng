@@ -64,7 +64,7 @@
         insertafter: "iface eth0 inet dhcp"
         block: |
           auto eth1
-            iface eth1 inet static
+          iface eth1 inet static
             address {{ devices[ansible_hostname].ip }}
             gateway {{ devices[ansible_hostname].gateway }}
 
