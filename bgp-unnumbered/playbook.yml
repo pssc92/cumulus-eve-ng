@@ -23,7 +23,7 @@
 
 
 - name: configure Leafs
-  hosts: leaf01:leaf02
+  hosts: leaf01:leaf03
   become: yes
   vars_files:
   - vars.yml
