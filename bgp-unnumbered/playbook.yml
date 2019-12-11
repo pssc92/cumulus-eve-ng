@@ -52,21 +52,21 @@
         commit: true
 
 - name: configure servers
-  hosts: server01:server02
+  hosts: server01:server03
   become: yes
   vars_files:
   - vars.yml
 
   tasks:
     - name: Add interfaces config to servers
-      lineinfile:
+      blockinfile:
         path: "/etc/network/interfaces"
         insertafter: "iface eth0 inet dhcp"
-        lines: 
-          - "auto eth1"
-          - "iface eth1 inet static"
-          - "address {{ devices[ansible_hostname].ip }}"
-          - "gateway {{ devices[ansible_hostname].gateway }}"
+        block: |
+          auto eth1
+            iface eth1 inet static
+            address {{ devices[ansible_hostname].ip }}
+            gateway {{ devices[ansible_hostname].gateway }}
 
 
 
