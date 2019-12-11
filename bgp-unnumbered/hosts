@@ -8,5 +8,9 @@ leaf02
 leaf03
 leaf04
 
+[servers]
+server01
+server03
+
 [all:vars]
 ansible_become_pass=CumulusLinux!

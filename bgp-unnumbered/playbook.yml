@@ -51,4 +51,22 @@
         - add interface {{ devices[ansible_hostname].server_port }} bridge access {{ devices[ansible_hostname].vlan }}
         commit: true
 
+- name: configure servers
+  hosts: server01:server02
+  become: yes
+  vars_files:
+  - var.yml
+
+  tasks:
+    - name: Include class config into include files
+      lineinfile:
+        path: "/etc/network/interfaces"
+        inserafter: "iface eth0 inet dhcp"
+        lines: 
+          - "auto eth1"
+          - "iface eth1 inet static"
+          - "address {{ devices[ansible_hostname].ip }}"
+          - "gateway {{ devices[ansible_hostname].gateway }}"
+
+
 
